@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>英语发音纠正工具</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f7fa;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        #appContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #canvasContainer {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        #waveCanvas, #analysisCanvas {
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+        #analysisCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        #recordBtn {
+            background-color: #e74c3c;
+            color: white;
+        }
+        #stopBtn {
+            background-color: #3498db;
+            color: white;
+        }
+        #analyzeBtn {
+            background-color: #2ecc71;
+            color: white;
+        }
+        button:disabled {
+            background-color: #bdc3c7;
+            cursor: not-allowed;
+        }
+        #targetText {
+            font-size: 20px;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #ecf0f1;
+            border-radius: 8px;
+            text-align: center;
+        }
+        #feedback {
+            width: 100%;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .phoneme-feedback {
+            display: flex;
+            margin-top: 15px;
+        }
+        .phoneme-box {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 5px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="appContainer">
+        <h1>英语发音纠正工具</h1>
+        
+        <div id="targetText">请朗读: "She sells seashells by the seashore"</div>
+        
+        <div id="canvasContainer">
+            <canvas id="waveCanvas" width="800" height="200"></canvas>
+            <canvas id="analysisCanvas" width="800" height="200"></canvas>
+        </div>
+        
+        <div class="controls">
+            <button id="recordBtn">开始录音</button>
+            <button id="stopBtn" disabled>停止录音</button>
+            <button id="analyzeBtn" disabled>分析发音</button>
+        </div>
+        
+        <div id="feedback">
+            <p>录音并分析您的发音，获取详细反馈</p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
+
